@@ -1,0 +1,306 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Base semantic tokens */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Custom BeeAgro colors */
+  --grass-green: #a6d672;
+  --dark-green: #557b35;
+  --earth-brown: #947355;
+  --wheat-yellow: #f8e985;
+  --sky-blue: #b8e0f9;
+  --light-gray: #f3f3f2;
+  --tomato-red: #ef7c6a;
+
+  /* Success states - using grass green */
+  --success: oklch(0.78 0.12 130);
+  --success-foreground: oklch(0.2 0.08 130);
+
+  /* Warning states - using wheat yellow */
+  --warning: oklch(0.9 0.12 95);
+  --warning-foreground: oklch(0.4 0.08 85);
+
+  /* Info states - using sky blue */
+  --info: oklch(0.85 0.08 220);
+  --info-foreground: oklch(0.3 0.12 230);
+
+  /* Health indicators */
+  --health-good: oklch(0.7 0.15 140);
+  --health-warning: oklch(0.85 0.15 90);
+  --health-danger: oklch(0.65 0.2 25);
+
+  /* Environmental data colors */
+  --env-temperature: oklch(0.7 0.18 40);
+  --env-precipitation: oklch(0.75 0.12 230);
+  --env-humidity: oklch(0.8 0.12 210);
+  --env-growth: oklch(0.75 0.15 135);
+
+  /* NDVI/vegetation health scale */
+  --vegetation-poor: oklch(0.6 0.2 25);
+  --vegetation-low: oklch(0.8 0.15 90);
+  --vegetation-medium: oklch(0.75 0.12 120);
+  --vegetation-good: oklch(0.65 0.18 140);
+
+  /* Mission/province indicator */
+  --mission: oklch(0.7 0.15 290);
+  --mission-foreground: oklch(0.98 0 0);
+
+  /* Font configurations */
+  --font-comic: "Comic Neue", serif;
+  --font-nunito: "Nunito", sans-serif;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+
+  /* Dark mode BeeAgro semantic tokens */
+  --success: oklch(0.65 0.15 130);
+  --success-foreground: oklch(0.95 0.05 130);
+
+  --warning: oklch(0.75 0.15 85);
+  --warning-foreground: oklch(0.95 0.05 85);
+
+  --info: oklch(0.7 0.12 220);
+  --info-foreground: oklch(0.95 0.05 220);
+
+  --health-good: oklch(0.65 0.18 140);
+  --health-warning: oklch(0.75 0.18 90);
+  --health-danger: oklch(0.6 0.22 25);
+
+  --env-temperature: oklch(0.65 0.2 40);
+  --env-precipitation: oklch(0.7 0.15 230);
+  --env-humidity: oklch(0.75 0.15 210);
+  --env-growth: oklch(0.7 0.18 135);
+
+  --vegetation-poor: oklch(0.55 0.22 25);
+  --vegetation-low: oklch(0.7 0.18 90);
+  --vegetation-medium: oklch(0.7 0.15 120);
+  --vegetation-good: oklch(0.6 0.2 140);
+
+  --mission: oklch(0.65 0.18 290);
+  --mission-foreground: oklch(0.98 0 0);
+}
+
+@theme inline {
+  --font-sans: var(--font-nunito);
+  --font-mono: var(--font-nunito);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Added BeeAgro semantic tokens to theme */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-health-good: var(--health-good);
+  --color-health-warning: var(--health-warning);
+  --color-health-danger: var(--health-danger);
+  --color-env-temperature: var(--env-temperature);
+  --color-env-precipitation: var(--env-precipitation);
+  --color-env-humidity: var(--env-humidity);
+  --color-env-growth: var(--env-growth);
+  --color-vegetation-poor: var(--vegetation-poor);
+  --color-vegetation-low: var(--vegetation-low);
+  --color-vegetation-medium: var(--vegetation-medium);
+  --color-vegetation-good: var(--vegetation-good);
+  --color-mission: var(--mission);
+  --color-mission-foreground: var(--mission-foreground);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Added custom animations for BeeAgro */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes bounce-gentle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(166, 214, 114, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(166, 214, 114, 0.8);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Grass gradient background */
+.bg-grass-gradient {
+  background: linear-gradient(90deg, #a6d672 0%, #b3e495 100%);
+}
+
+.bg-sky-gradient {
+  background: linear-gradient(180deg, #b8e0f9 0%, #ffffff 100%);
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grass-green);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-green);
+}
