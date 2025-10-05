@@ -155,7 +155,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
             </h1>
             <div className="flex items-center justify-center gap-2 text-2xl text-[#947355] font-medium">
               <Leaf className="w-8 h-8 text-[#A6D672]" />
-              <span className="text-[#947355]">Cosechando datos, Cultivando Conocimiento</span>
+              <span className="text-[#947355]">Cultivando datos, Cosechando Conocimiento</span>
             </div>
           </div>
 
