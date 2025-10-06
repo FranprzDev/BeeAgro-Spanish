@@ -27,55 +27,52 @@ interface WelcomeScreenProps {
 const roadmapSteps = [
   {
     id: 1,
-    title: "Heredar el Campo",
+    title: "Inherit the Farm",
     description:
-      "Tu abuelo te deja su campo en Tucumán. Es el comienzo de tu responsabilidad como guardián de la tierra.",
+      "Your grandfather leaves you his farm in Tucumán. It's the beginning of your responsibility as guardian of the land.",
     icon: Tractor,
   },
   {
     id: 2,
-    title: "Elegir el Cultivo",
-    description: "Decides plantar limones. Una decisión que marcará el futuro de tu campo y tu aprendizaje.",
+    title: "Choose the Crop",
+    description: "You decide to plant lemons. A decision that will shape the future of your farm and your learning.",
     icon: Leaf,
   },
   {
     id: 3,
-    title: "Preparar el Suelo",
-    description: "Analiza el suelo, su textura, fertilidad y drenaje. La base de todo cultivo exitoso.",
+    title: "Prepare the Soil",
+    description: "Analyze the soil, its texture, fertility, and drainage. The foundation of every successful crop.",
     icon: Shovel,
   },
   {
     id: 4,
-    title: "Plantar los Limoneros",
-    description:
-      "Primavera en Tucumán. Debes decidir cuándo y cómo plantar. El riego será clave para el establecimiento.",
+    title: "Plant the Lemon Trees",
+    description: "Spring in Tucumán. You must decide when and how to plant. Irrigation will be key to establishment.",
     icon: Sprout,
   },
   {
     id: 5,
-    title: "Primer Verano",
+    title: "First Summer",
     description:
-      "Llega el calor. Monitorea NDVI, humedad del suelo y temperatura. Tus decisiones determinarán el vigor de las plantas.",
+      "The heat arrives. Monitor NDVI, soil moisture, and temperature. Your decisions will determine plant vigor.",
     icon: Thermometer,
   },
   {
     id: 6,
-    title: "Gestión del Agua",
-    description:
-      "Aprende a usar riego por goteo, cultivos de cobertura y a leer los datos satelitales para optimizar el agua.",
+    title: "Water Management",
+    description: "Learn to use drip irrigation, cover crops, and read satellite data to optimize water use.",
     icon: Droplets,
   },
   {
     id: 7,
-    title: "Monitoreo Satelital",
-    description: "Domina el uso de NDVI y datos satelitales para tomar decisiones basadas en información real.",
+    title: "Satellite Monitoring",
+    description: "Master the use of NDVI and satellite data to make decisions based on real information.",
     icon: Satellite,
   },
   {
     id: 8,
-    title: "Agricultura Regenerativa",
-    description:
-      "Implementa prácticas que mejoran el ecosistema: materia orgánica, microbiología del suelo, biodiversidad.",
+    title: "Regenerative Agriculture",
+    description: "Implement practices that improve the ecosystem: organic matter, soil microbiology, biodiversity.",
     icon: TreePine,
   },
 ]
@@ -103,7 +100,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
             <h1 className="text-6xl font-bold text-[#557B35] mb-4" style={{ fontFamily: "cursive" }}>
               BeeAgro
             </h1>
-            <p className="text-2xl text-[#947355] font-medium mb-2">Elige tu provincia para comenzar</p>
+            <p className="text-2xl text-[#947355] font-medium mb-2">Choose your province to begin</p>
           </div>
 
           <div className="max-w-4xl mx-auto mb-6"></div>
@@ -116,7 +113,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
               onClick={() => setShowMap(false)}
               className="border-2 border-[#557B35] text-[#557B35] hover:bg-[#A6D672] hover:text-white"
             >
-              Volver
+              Back
             </Button>
           </div>
         </div>
@@ -155,7 +152,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
             </h1>
             <div className="flex items-center justify-center gap-2 text-2xl text-[#947355] font-medium">
               <Leaf className="w-8 h-8 text-[#A6D672]" />
-              <span className="text-[#947355]">Cultivando datos, Cosechando Conocimiento</span>
+              <span className="text-[#947355]">Cultivating Data, Harvesting Knowledge</span>
             </div>
           </div>
 
@@ -164,7 +161,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
             {/* Left side - Api character and text */}
             <div className="text-center md:text-left space-y-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
               <div className="relative w-64 h-64 mx-auto md:mx-0 animate-bounce-gentle">
-                <Image src="/images/api-bee.png" alt="Api la abeja" fill className="object-contain drop-shadow-2xl" />
+                <Image src="/images/api-bee.png" alt="Api the bee" fill className="object-contain drop-shadow-2xl" />
                 <div className="absolute -top-4 -right-4">
                   <Sparkles className="w-12 h-12 text-[#F8E985] animate-pulse" />
                 </div>
@@ -172,19 +169,19 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
 
               <div className="space-y-4">
                 <h2 className="text-4xl font-bold text-[#557B35]" style={{ fontFamily: "cursive" }}>
-                  ¡Hola! Soy Api
+                  Hello! I'm Api
                 </h2>
                 <p className="text-xl text-[#947355] leading-relaxed">
-                  La abeja que te guiará a conocer las tecnologías de cultivos sustentables
+                  The bee that will guide you to learn about sustainable farming technologies
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                   <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
                     <Leaf className="w-5 h-5 text-[#A6D672]" />
-                    <span className="text-sm font-medium text-[#557B35]">Agricultura Regenerativa</span>
+                    <span className="text-sm font-medium text-[#557B35]">Regenerative Agriculture</span>
                   </div>
                   <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
                     <Droplets className="w-5 h-5 text-[#B8E0F9]" />
-                    <span className="text-sm font-medium text-[#557B35]">Datos Satelitales</span>
+                    <span className="text-sm font-medium text-[#557B35]">Satellite Data</span>
                   </div>
                 </div>
               </div>
@@ -195,7 +192,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
                 className="bg-[#A6D672] hover:bg-[#557B35] text-white text-2xl px-12 py-8 rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105 animate-pulse-glow"
               >
                 <Sparkles className="w-6 h-6 mr-2" />
-                ¡Comenzar Aventura!
+                Start Adventure!
               </Button>
             </div>
 
@@ -207,9 +204,9 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
                     <Leaf className="w-8 h-8 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#557B35] mb-2">Aprende Cultivando</h3>
+                    <h3 className="text-xl font-bold text-[#557B35] mb-2">Learn by Farming</h3>
                     <p className="text-[#947355]">
-                      Descubre prácticas agrícolas sustentables mientras gestionas tu propia granja virtual
+                      Discover sustainable agricultural practices while managing your own virtual farm
                     </p>
                   </div>
                 </div>
@@ -221,9 +218,9 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
                     <Sparkles className="w-8 h-8 text-[#557B35]" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#557B35] mb-2">Datos Reales</h3>
+                    <h3 className="text-xl font-bold text-[#557B35] mb-2">Real Data</h3>
                     <p className="text-[#947355]">
-                      Utiliza información satelital real (NDVI, humedad) para tomar decisiones inteligentes
+                      Use real satellite information (NDVI, moisture) to make smart decisions
                     </p>
                   </div>
                 </div>
@@ -235,9 +232,9 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
                     <Sun className="w-8 h-8 text-[#F8E985]" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#557B35] mb-2">Impacto Real</h3>
+                    <h3 className="text-xl font-bold text-[#557B35] mb-2">Real Impact</h3>
                     <p className="text-[#947355]">
-                      Cada decisión afecta la salud del ecosistema y la productividad de tu granja
+                      Every decision affects ecosystem health and your farm's productivity
                     </p>
                   </div>
                 </div>
@@ -265,7 +262,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
           ))}
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-center pb-8 animate-bounce">
-          <div className="text-[#fff] text-sm font-medium mb-2">Descubre tu camino bajo la tierra</div>
+          <div className="text-[#fff] text-sm font-medium mb-2">Discover your path beneath the earth</div>
           <div className="w-8 h-8 border-2 border-[#fff] rounded-full flex items-center justify-center mx-auto bg-[#8b7355]/30">
             <div className="w-2 h-2 bg-[#fff] rounded-full animate-pulse" />
           </div>
@@ -311,10 +308,10 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
         <div className="relative z-10 container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-[#a68a6a] mb-4" style={{ fontFamily: "cursive" }}>
-              Tu Camino de Aprendizaje
+              Your Learning Path
             </h2>
             <p className="text-xl text-[#8b7355]">
-              Mientras más profundo vas, más aprendes sobre agricultura sustentable
+              The deeper you go, the more you learn about sustainable agriculture
             </p>
           </div>
 
@@ -437,10 +434,10 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
             >
               <Eye className="w-20 h-20 text-[#a68a6a] mx-auto mb-4" />
               <h3 className="text-3xl font-bold text-[#d4c4b0] mb-4" style={{ fontFamily: "cursive" }}>
-                ¿Listo para comenzar tu viaje?
+                Ready to start your journey?
               </h3>
               <p className="text-lg text-[#a68a6a] mb-6">
-                Has visto el camino completo. Ahora elige tu provincia y comienza a aprender desde las raíces.
+                You've seen the complete path. Now choose your province and start learning from the roots.
               </p>
               <Button
                 size="lg"
@@ -448,15 +445,13 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
                 className="bg-[#6B5335] hover:bg-[#5c4a3a] text-[#d4c4b0] text-xl px-10 py-6 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 border-2 border-[#8b7355]"
               >
                 <MapPin className="w-6 h-6 mr-2" />
-                Elegir Provincia
+                Choose Province
               </Button>
             </div>
           </div>
         </div>
 
         <Footer />
-
-        {/* Bottom - deepest earth layer */}
       </div>
     </div>
   )

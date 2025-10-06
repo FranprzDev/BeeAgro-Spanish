@@ -61,17 +61,15 @@ export function ArgentinaMapOpenStreetMap({ onProvinceSelect }: ArgentinaMapOpen
         <Card className="mb-6 bg-gradient-to-r from-[#F8E985]/30 to-[#A6D672]/30 border-2 border-[#A6D672] p-6">
           <div className="flex items-start gap-4">
             <div className="relative w-20 h-20 flex-shrink-0 animate-bounce-gentle">
-              <Image src="/images/api-bee.png" alt="Api la abeja" fill className="object-contain drop-shadow-lg" />
+              <Image src="/images/api-bee.png" alt="Api the bee" fill className="object-contain drop-shadow-lg" />
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-[#557B35] mb-2 font-serif">
-                ¡Bienvenido/a, futuro/a agricultor/a!
-              </h3>
+              <h3 className="text-2xl font-bold text-[#557B35] mb-2 font-serif">Welcome, future farmer!</h3>
               <p className="text-[#947355] leading-relaxed">
-                Soy Api y te ayudaré a elegir la mejor provincia para comenzar tu aventura agrícola. Cada provincia
-                tiene características únicas de clima, suelo y recursos.
-                <span className="font-semibold text-[#557B35]"> Haz clic en los íconos de azada</span> para conocer más
-                sobre cada región.
+                I'm Api and I'll help you choose the best province to start your agricultural adventure. Each province
+                has unique characteristics of climate, soil, and resources.
+                <span className="font-semibold text-[#557B35]"> Click on the hoe icons</span> to learn more about each
+                region.
               </p>
             </div>
           </div>
@@ -89,7 +87,7 @@ export function ArgentinaMapOpenStreetMap({ onProvinceSelect }: ArgentinaMapOpen
             aria-hidden="false"
             tabIndex="0"
             scrolling="no"
-            title="Mapa de Argentina"
+            title="Map of Argentina"
           />
 
           {provincesData.map((province) => {

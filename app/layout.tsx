@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`${nunito.variable} ${comicNeue.variable} antialiased`}>
+    <html lang="en" className={`${nunito.variable} ${comicNeue.variable} antialiased`}>
       <body>{children}</body>
     </html>
   )

@@ -40,7 +40,7 @@ export default function AboutUsPage() {
           <Link href="/" className="inline-block hover:scale-105 transition-transform">
             <BeaCharacter health="healthy" isAnimating className="w-32 mx-auto" />
           </Link>
-          <h1 className="font-serif text-5xl font-bold text-[#557b35] text-balance drop-shadow-sm">Sobre Nosotros</h1>
+          <h1 className="font-serif text-5xl font-bold text-[#557b35] text-balance drop-shadow-sm">About Us</h1>
         </div>
 
         {/* Project Info */}
@@ -49,7 +49,7 @@ export default function AboutUsPage() {
             <div className="text-center space-y-4">
               <h2 className="font-serif text-3xl font-bold text-[#557b35]">BEEagro</h2>
               <p className="text-lg text-[#947355] leading-relaxed text-pretty max-w-3xl mx-auto">
-                Este proyecto nació en el marco de la{" "}
+                This project was born within the framework of the{" "}
                 <a
                   href="https://www.spaceappschallenge.org/2025/"
                   target="_blank"
@@ -58,16 +58,15 @@ export default function AboutUsPage() {
                 >
                   NASA Space Apps Challenge 2025
                 </a>
-                , donde nuestro equipo BEEagro participa en la categoría{" "}
+                , where our BEEagro team participates in the category{" "}
                 <span className="font-semibold text-[#557b35]">
                   NASA Farm Navigators: Using NASA Data Exploration in Agriculture
                 </span>
                 .
               </p>
               <p className="text-[#947355] leading-relaxed text-pretty max-w-3xl mx-auto">
-                Nuestro objetivo es utilizar datos satelitales de la NASA para crear una experiencia educativa e
-                interactiva que ayude a los agricultores a tomar decisiones sostenibles, equilibrando la productividad
-                con la conservación del ecosistema.
+                Our goal is to use NASA satellite data to create an educational and interactive experience that helps
+                farmers make sustainable decisions, balancing productivity with ecosystem conservation.
               </p>
             </div>
           </div>
@@ -75,7 +74,7 @@ export default function AboutUsPage() {
 
         {/* Team Members */}
         <Card className="p-8 bg-[#f5f1e8] border-4 border-[#947355] shadow-2xl">
-          <h2 className="font-serif text-3xl font-bold text-[#557b35] text-center mb-8">Nuestro Equipo</h2>
+          <h2 className="font-serif text-3xl font-bold text-[#557b35] text-center mb-8">Our Team</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {teamMembers.map((member) => (
               <a
@@ -102,7 +101,7 @@ export default function AboutUsPage() {
             href="/"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#a6d672] hover:bg-[#557b35] text-[#557b35] hover:text-white font-bold rounded-lg border-2 border-[#947355] transition-colors"
           >
-            Volver al Juego
+            Back to Game
           </Link>
         </div>
       </div>

@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="bg-[#557b35] text-white py-6 mt-8">
       <div className="max-w-7xl mx-auto px-4 text-center space-y-2">
         <p className="text-sm text-[#fff] ">
-          © 2025 BEEagro - Proyecto creado para{" "}
+          © 2025 BEEagro - Project created for{" "}
           <a
             href="https://www.spaceappschallenge.org/2025/"
             target="_blank"
@@ -17,7 +17,7 @@ export function Footer() {
         </p>
         <div className="flex justify-center gap-4 text-sm">
           <Link href="/about-us" className="text-[#fff] hover:text-[#a6d672] transition-colors underline">
-            Sobre Nosotros
+            About Us
           </Link>
         </div>
       </div>

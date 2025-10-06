@@ -41,7 +41,7 @@ export function BeeChatbot({ chatHistory, isMinimized, onToggleMinimize }: BeeCh
           onClick={onToggleMinimize}
           className="text-sm px-2 py-1 bg-white/50 hover:bg-white/80 rounded-lg text-[#557b35] font-medium transition-colors"
         >
-          {isMinimized ? "Expandir" : "Minimizar"}
+          {isMinimized ? "Expand" : "Minimize"}
         </button>
       </div>
 

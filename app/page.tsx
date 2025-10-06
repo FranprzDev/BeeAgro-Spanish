@@ -100,7 +100,7 @@ export default function BeeAgroGame() {
     const welcomeMessage: ChatMessage = {
       id: `msg-welcome-${Date.now()}`,
       type: "system",
-      text: `¡Bienvenido a tu tierra en ${selectedProvince?.charAt(0).toUpperCase()}${selectedProvince?.slice(1)}! Soy API, tu abeja guía conectada a los satélites de NASA. 🐝`,
+      text: `Welcome to your land in ${selectedProvince?.charAt(0).toUpperCase()}${selectedProvince?.slice(1)}! I'm API, your bee guide connected to NASA satellites. 🐝`,
       timestamp: Date.now(),
     }
     setChatHistory([welcomeMessage])
@@ -118,7 +118,7 @@ export default function BeeAgroGame() {
               setShowDecisionModal(true)
               addChatMessage({
                 type: "mission",
-                text: "💡 Revisa las opciones en la ventana que apareció y elige la mejor estrategia basándote en los datos de NASA.",
+                text: "💡 Review the options in the window that appeared and choose the best strategy based on NASA data.",
               })
             }, 2000)
           }
@@ -159,12 +159,12 @@ export default function BeeAgroGame() {
       if (hudMode === "recommend") {
         addChatMessage({
           type: "dialogue",
-          text: `${plot.name} tiene un NDVI de ${plot.ndvi.toFixed(2)} y humedad del ${plot.humidity}%. ${
+          text: `${plot.name} has an NDVI of ${plot.ndvi.toFixed(2)} and ${plot.humidity}% moisture. ${
             plot.ndvi > 0.7
-              ? "¡Excelente condición para cultivos! 🌟"
+              ? "Excellent condition for crops! 🌟"
               : plot.ndvi > 0.5
-                ? "Buena condición, pero podría mejorar. 💡"
-                : "Necesita atención y mejora del suelo. ⚠️"
+                ? "Good condition, but could improve. 💡"
+                : "Needs attention and soil improvement. ⚠️"
           }`,
         })
       }
@@ -185,7 +185,7 @@ export default function BeeAgroGame() {
       if (money < choice.cost) {
         addChatMessage({
           type: "dialogue",
-          text: `¡No tienes suficiente dinero! Necesitas $${choice.cost.toLocaleString()} para esta opción. 💰`,
+          text: `You don't have enough money! You need $${choice.cost.toLocaleString()} for this option. 💰`,
         })
         return
       }
@@ -209,7 +209,7 @@ export default function BeeAgroGame() {
 
       addChatMessage({
         type: "milestone",
-        text: `🎯 Decisión tomada: ${choice.label}`,
+        text: `🎯 Decision made: ${choice.label}`,
       })
 
       // Show feedback
@@ -231,7 +231,7 @@ export default function BeeAgroGame() {
       // Show completion dialogue
       if (currentMission?.completionDialogue) {
         setTimeout(() => {
-          currentMission.completionDialogue!.forEach((dialogue, index) => {
+          currentMission.completionDialogue.forEach((dialogue, index) => {
             setTimeout(() => {
               addChatMessage({
                 type: "dialogue",
@@ -243,33 +243,33 @@ export default function BeeAgroGame() {
           setTimeout(
             () => {
               setCompletionData({
-                title: "Agricultura de Precisión con Datos Satelitales",
+                title: "Precision Agriculture with Satellite Data",
                 description:
-                  "Has aprendido a usar datos de satélites NASA para tomar decisiones inteligentes sobre riego y plantación. La agricultura de precisión combina tecnología espacial con conocimiento tradicional para optimizar recursos y mejorar cosechas.",
+                  "You've learned to use NASA satellite data to make smart decisions about irrigation and planting. Precision agriculture combines space technology with traditional knowledge to optimize resources and improve harvests.",
                 learnings: [
-                  "Los satélites NASA miden humedad del suelo, temperatura y salud de plantas (NDVI)",
-                  "El riego por goteo es más eficiente que el riego tradicional, ahorrando hasta 60% de agua",
-                  "Los limoneros necesitan humedad constante pero suelo bien drenado para crecer saludables",
-                  "Tomar decisiones basadas en datos reduce riesgos y mejora la productividad agrícola",
+                  "NASA satellites measure soil moisture, temperature, and plant health (NDVI)",
+                  "Drip irrigation is more efficient than traditional irrigation, saving up to 60% of water",
+                  "Lemon trees need constant moisture but well-drained soil to grow healthy",
+                  "Making data-driven decisions reduces risks and improves agricultural productivity",
                 ],
                 links: [
                   {
-                    label: "NASA POWER - Datos Agrícolas",
+                    label: "NASA POWER - Agricultural Data",
                     url: "https://power.larc.nasa.gov/",
                   },
                   {
-                    label: "Riego por Goteo - Guía Completa",
-                    url: "https://es.wikipedia.org/wiki/Riego_por_goteo",
+                    label: "Drip Irrigation - Complete Guide",
+                    url: "https://en.wikipedia.org/wiki/Drip_irrigation",
                   },
                   {
-                    label: "NDVI y Agricultura",
-                    url: "https://es.wikipedia.org/wiki/%C3%8Dndice_de_vegetaci%C3%B3n_de_diferencia_normalizada",
+                    label: "NDVI and Agriculture",
+                    url: "https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index",
                   },
                 ],
               })
               setShowCompletionModal(true)
             },
-            currentMission.completionDialogue!.length * 2000 + 1000,
+            currentMission.completionDialogue.length * 2000 + 1000,
           )
         }, 3000)
       }
@@ -302,14 +302,14 @@ export default function BeeAgroGame() {
         if (money < cost) {
           addChatMessage({
             type: "dialogue",
-            text: `¡No tienes suficiente dinero! Necesitas $${cost} para usar velocidad x${speed}. 💰`,
+            text: `You don't have enough money! You need $${cost} to use x${speed} speed. 💰`,
           })
           return
         }
         addMoney(-cost)
         addChatMessage({
           type: "system",
-          text: `⚡ Velocidad aumentada a x${speed}. Costo: $${cost}`,
+          text: `⚡ Speed increased to x${speed}. Cost: $${cost}`,
         })
       }
       setTimeSpeed(speed)
@@ -325,40 +325,40 @@ export default function BeeAgroGame() {
   }, [beaHealth])
 
   const beeAltText = useMemo(() => {
-    if (beaHealth > 60) return "Abeja muy feliz"
-    if (beaHealth > 50) return "Abeja feliz"
-    if (beaHealth > 30) return "Abeja triste"
-    return "Abeja muerta"
+    if (beaHealth > 60) return "Happy bee"
+    if (beaHealth > 50) return "Smiling bee"
+    if (beaHealth > 30) return "Sad bee"
+    return "Dead bee"
   }, [beaHealth])
 
   const variableInfo = {
     ndvi: {
-      title: "NDVI - Índice de Vegetación",
+      title: "NDVI - Vegetation Index",
       description:
-        "El NDVI (Normalized Difference Vegetation Index) mide la salud de la vegetación usando datos satelitales de NASA. Valores más altos (cercanos a 1) indican vegetación más saludable y vigorosa.",
-      tips: "💡 Consejo: Planta en lotes con NDVI alto para mejores resultados. Un NDVI mayor a 0.6 es excelente para cultivos.",
-      link: "https://es.wikipedia.org/wiki/%C3%8Dndice_de_vegetaci%C3%B3n_de_diferencia_normalizada",
+        "NDVI (Normalized Difference Vegetation Index) measures vegetation health using NASA satellite data. Higher values (close to 1) indicate healthier and more vigorous vegetation.",
+      tips: "💡 Tip: Plant in plots with high NDVI for better results. An NDVI greater than 0.6 is excellent for crops.",
+      link: "https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index",
     },
     humidity: {
-      title: "Humedad del Suelo",
+      title: "Soil Moisture",
       description:
-        "La humedad del suelo medida por satélites NASA es crucial para el crecimiento de las plantas. Mide la cantidad de agua disponible en el suelo para las raíces.",
-      tips: "💡 Consejo: Monitorea la humedad regularmente. La mayoría de los cultivos prefieren humedad entre 40-60%.",
-      link: "https://es.wikipedia.org/wiki/Humedad_del_suelo",
+        "Soil moisture measured by NASA satellites is crucial for plant growth. It measures the amount of water available in the soil for roots.",
+      tips: "💡 Tip: Monitor moisture regularly. Most crops prefer moisture between 40-60%.",
+      link: "https://en.wikipedia.org/wiki/Water_content",
     },
     precipitation: {
-      title: "Precipitación",
+      title: "Precipitation",
       description:
-        "Datos de precipitación de satélites NASA indican la cantidad de lluvia que ha caído en el área. Es fundamental para mantener la humedad del suelo y el crecimiento de los cultivos.",
-      tips: "💡 Consejo: Planifica tus cultivos según las estaciones de lluvia. Algunos cultivos necesitan más agua que otros.",
-      link: "https://es.wikipedia.org/wiki/Precipitaci%C3%B3n_(meteorolog%C3%ADa)",
+        "NASA satellite precipitation data indicates the amount of rain that has fallen in the area. It's fundamental for maintaining soil moisture and crop growth.",
+      tips: "💡 Tip: Plan your crops according to rainy seasons. Some crops need more water than others.",
+      link: "https://en.wikipedia.org/wiki/Precipitation",
     },
     temperature: {
-      title: "Temperatura",
+      title: "Temperature",
       description:
-        "La temperatura medida por satélites NASA afecta directamente el crecimiento y desarrollo de los cultivos. Cada planta tiene un rango óptimo de temperatura.",
-      tips: "💡 Consejo: Elige cultivos adaptados al clima de tu región. Las temperaturas entre 15-25°C son ideales para la mayoría de cultivos.",
-      link: "https://es.wikipedia.org/wiki/Temperatura",
+        "Temperature measured by NASA satellites directly affects crop growth and development. Each plant has an optimal temperature range.",
+      tips: "💡 Tip: Choose crops adapted to your region's climate. Temperatures between 15-25°C are ideal for most crops.",
+      link: "https://en.wikipedia.org/wiki/Temperature",
     },
   }
 
@@ -394,7 +394,7 @@ export default function BeeAgroGame() {
             </div>
             <div className="flex-1">
               <div className="flex justify-between items-center mb-2">
-                <span className="font-serif text-sm font-bold text-[#557b35]">Satisfacción de API</span>
+                <span className="font-serif text-sm font-bold text-[#557b35]">API's Satisfaction</span>
                 <span className="text-sm font-bold text-[#557b35]">{beaHealth}%</span>
               </div>
               <div className="h-6 bg-white/50 rounded-full overflow-hidden border-2 border-[#947355]">
@@ -424,7 +424,7 @@ export default function BeeAgroGame() {
               <div className="bg-gradient-to-br from-blue-100 to-blue-200 border-4 border-blue-400 rounded-xl p-4 shadow-lg flex-shrink-0">
                 <h3 className="font-serif text-lg font-bold text-blue-800 mb-3 flex items-center gap-2">
                   <span className="text-xl">🛰️</span>
-                  <span>Variables NASA</span>
+                  <span>NASA Variables</span>
                 </h3>
                 <div className="space-y-3">
                   <button
@@ -432,7 +432,7 @@ export default function BeeAgroGame() {
                     className="w-full bg-white/70 hover:bg-white border-2 border-blue-300 rounded-lg p-3 transition-all text-left"
                   >
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-blue-700">Temperatura</span>
+                      <span className="text-sm font-medium text-blue-700">Temperature</span>
                       <span className="text-xs text-blue-600">ℹ️</span>
                     </div>
                     <div className="text-lg font-bold text-blue-900 mt-1">
@@ -445,7 +445,7 @@ export default function BeeAgroGame() {
                     className="w-full bg-white/70 hover:bg-white border-2 border-blue-300 rounded-lg p-3 transition-all text-left"
                   >
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-blue-700">Precipitación</span>
+                      <span className="text-sm font-medium text-blue-700">Precipitation</span>
                       <span className="text-xs text-blue-600">ℹ️</span>
                     </div>
                     <div className="text-lg font-bold text-blue-900 mt-1">{environmental.precipitation}mm</div>
@@ -456,14 +456,14 @@ export default function BeeAgroGame() {
                     className="w-full bg-white/70 hover:bg-white border-2 border-blue-300 rounded-lg p-3 transition-all text-left"
                   >
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-blue-700">Humedad del Suelo</span>
+                      <span className="text-sm font-medium text-blue-700">Soil Moisture</span>
                       <span className="text-xs text-blue-600">ℹ️</span>
                     </div>
                     <div className="text-lg font-bold text-blue-900 mt-1">{environmental.soilHumidity}%</div>
                   </button>
 
                   <div className="bg-white/70 border-2 border-blue-300 rounded-lg p-3">
-                    <span className="text-sm font-medium text-blue-700">Estación</span>
+                    <span className="text-sm font-medium text-blue-700">Season</span>
                     <div className="text-lg font-bold text-blue-900 mt-1 capitalize">{environmental.season}</div>
                   </div>
                 </div>
@@ -471,24 +471,24 @@ export default function BeeAgroGame() {
 
               {/* Farm Statistics */}
               <div className="bg-[#f8e985] border-4 border-[#947355] rounded-xl p-4 shadow-lg flex-shrink-0">
-                <h3 className="font-serif text-lg font-bold text-[#557b35] mb-3">Estadísticas</h3>
+                <h3 className="font-serif text-lg font-bold text-[#557b35] mb-3">Statistics</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-[#947355]">Fondos</span>
+                    <span className="text-sm font-medium text-[#947355]">Funds</span>
                     <span className="text-xl font-bold text-[#557b35]">${money.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-[#947355]">Producción</span>
+                    <span className="text-sm font-medium text-[#947355]">Production</span>
                     <span className="text-xl font-bold text-[#557b35]">{productivity}%</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-[#947355]">Biodiversidad</span>
+                    <span className="text-sm font-medium text-[#947355]">Biodiversity</span>
                     <span className="text-xl font-bold text-[#557b35]">{biodiversity}%</span>
                   </div>
                 </div>
 
                 <div className="mt-4 pt-4 border-t-2 border-[#947355]">
-                  <h4 className="text-sm font-bold text-[#557b35] mb-2">Velocidad de Tiempo</h4>
+                  <h4 className="text-sm font-bold text-[#557b35] mb-2">Time Speed</h4>
                   <div className="grid grid-cols-3 gap-2">
                     {[1, 2, 3, 4].map((speed) => (
                       <button
@@ -547,7 +547,7 @@ export default function BeeAgroGame() {
 
               {/* Tools HUD */}
               <div className="bg-gradient-to-br from-amber-100 to-amber-200 border-4 border-[#947355] rounded-xl p-3 shadow-lg flex-shrink-0">
-                <h3 className="font-serif text-base font-bold text-[#557b35] mb-2 text-center">Herramientas</h3>
+                <h3 className="font-serif text-base font-bold text-[#557b35] mb-2 text-center">Tools</h3>
                 <div className="grid grid-cols-4 gap-2">
                   <button
                     onClick={() => setHudMode("plant")}
@@ -556,11 +556,11 @@ export default function BeeAgroGame() {
                         ? "bg-green-500 border-green-700 scale-105 shadow-lg"
                         : "bg-white/70 border-[#947355] hover:bg-white/90"
                     }`}
-                    title="Plantar"
+                    title="Plant"
                   >
                     <div className="text-2xl mb-1">🌱</div>
                     <span className={`text-xs font-bold ${hudMode === "plant" ? "text-white" : "text-[#557b35]"}`}>
-                      Plantar
+                      Plant
                     </span>
                   </button>
 
@@ -571,13 +571,13 @@ export default function BeeAgroGame() {
                         ? "bg-orange-500 border-orange-700 scale-105 shadow-lg"
                         : "bg-white/70 border-[#947355] hover:bg-white/90"
                     }`}
-                    title="Cosechar"
+                    title="Harvest"
                   >
                     <div className="relative w-6 h-6 mb-1">
-                      <Image src="/images/hoe-icon.png" alt="Azada" fill className="object-contain" />
+                      <Image src="/images/hoe-icon.png" alt="Hoe" fill className="object-contain" />
                     </div>
                     <span className={`text-xs font-bold ${hudMode === "harvest" ? "text-white" : "text-[#557b35]"}`}>
-                      Cosechar
+                      Harvest
                     </span>
                   </button>
 
@@ -588,35 +588,37 @@ export default function BeeAgroGame() {
                         ? "bg-blue-500 border-blue-700 scale-105 shadow-lg"
                         : "bg-white/70 border-[#947355] hover:bg-white/90"
                     }`}
-                    title="Recomendaciones de Api"
+                    title="Api's Recommendations"
                   >
                     <div className="text-2xl mb-1">💡</div>
                     <span className={`text-xs font-bold ${hudMode === "recommend" ? "text-white" : "text-[#557b35]"}`}>
-                      Consejos
+                      Tips
                     </span>
                   </button>
 
                   <button
                     className="flex flex-col items-center justify-center p-2 rounded-xl border-3 bg-purple-100 border-purple-400 hover:bg-purple-200 transition-all group relative"
-                    title={`Misión: ${currentMission?.title || "Ninguna"}`}
+                    title={`Mission: ${currentMission?.title || "None"}`}
                   >
                     <div className="text-xl mb-1">
                       {currentMission?.completed ? "✅" : showDecisionModal ? "⚠️" : "🎯"}
                     </div>
-                    <span className="text-xs font-bold text-purple-700 capitalize">{selectedProvince || "Misión"}</span>
+                    <span className="text-xs font-bold text-purple-700 capitalize">
+                      {selectedProvince || "Mission"}
+                    </span>
                     <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
                       {currentMission?.completed
-                        ? "✓ Misión Completada"
+                        ? "✓ Mission Completed"
                         : showDecisionModal
-                          ? "⚠️ Elige una opción"
-                          : currentMission?.title || "Sin misión"}
+                          ? "⚠️ Choose an option"
+                          : currentMission?.title || "No mission"}
                     </div>
                   </button>
                 </div>
                 <p className="text-xs text-center text-[#947355] mt-2 leading-tight">
-                  {hudMode === "plant" && "Selecciona un lote para plantar"}
-                  {hudMode === "harvest" && "Selecciona un lote para cosechar"}
-                  {hudMode === "recommend" && "API te dará recomendaciones"}
+                  {hudMode === "plant" && "Select a plot to plant"}
+                  {hudMode === "harvest" && "Select a plot to harvest"}
+                  {hudMode === "recommend" && "API will give you recommendations"}
                 </p>
               </div>
             </div>
@@ -636,38 +638,38 @@ export default function BeeAgroGame() {
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 overflow-y-auto">
           <div className="bg-gradient-to-br from-green-50 to-yellow-50 rounded-2xl p-6 max-w-3xl w-full shadow-2xl border-4 border-[#557b35] my-8">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="font-serif text-2xl font-bold text-[#557b35]">🍋 Decisión de Plantación</h2>
+              <h2 className="font-serif text-2xl font-bold text-[#557b35]">🍋 Planting Decision</h2>
               <div className="relative w-16 h-16 flex-shrink-0">
                 <Image src={beeImage || "/placeholder.svg"} alt={beeAltText} fill className="object-contain" />
               </div>
             </div>
 
             <p className="text-[#947355] mb-4 text-center">
-              Analiza los datos de NASA y elige la mejor estrategia para tu cultivo
+              Analyze NASA data and choose the best strategy for your crop
             </p>
 
             <div className="bg-blue-50 border-2 border-blue-300 rounded-xl p-4 mb-4">
               <h3 className="font-bold text-blue-800 mb-3 flex items-center gap-2">
                 <span className="text-xl">🛰️</span>
-                <span>Datos Ambientales NASA</span>
+                <span>NASA Environmental Data</span>
               </h3>
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-blue-700">Temperatura:</span>
+                  <span className="text-blue-700">Temperature:</span>
                   <span className="font-bold text-blue-900">
                     {environmental.temperature.min}°C - {environmental.temperature.max}°C
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-blue-700">Precipitación:</span>
+                  <span className="text-blue-700">Precipitation:</span>
                   <span className="font-bold text-blue-900">{environmental.precipitation}mm</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-blue-700">Humedad del Suelo:</span>
+                  <span className="text-blue-700">Soil Moisture:</span>
                   <span className="font-bold text-blue-900">{environmental.soilHumidity}%</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-blue-700">Estación:</span>
+                  <span className="text-blue-700">Season:</span>
                   <span className="font-bold text-blue-900 capitalize">{environmental.season}</span>
                 </div>
               </div>
@@ -697,7 +699,7 @@ export default function BeeAgroGame() {
             </div>
 
             <div className="mt-4 text-center">
-              <p className="text-xs text-[#947355]">💰 Tu presupuesto actual: ${money.toLocaleString()}</p>
+              <p className="text-xs text-[#947355]">💰 Your current budget: ${money.toLocaleString()}</p>
             </div>
           </div>
         </div>
@@ -714,12 +716,12 @@ export default function BeeAgroGame() {
             className="bg-gradient-to-br from-green-50 to-yellow-50 rounded-2xl p-8 max-w-2xl w-full shadow-2xl border-4 border-[#557b35] relative max-h-[90vh] overflow-y-auto"
           >
             <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-32">
-              <Image src="/images/very-happy-bee.png" alt="Abeja feliz" fill className="object-contain" />
+              <Image src="/images/very-happy-bee.png" alt="Happy bee" fill className="object-contain" />
             </div>
 
             <div className="mt-8">
               <h2 className="font-serif text-3xl font-bold text-[#557b35] mb-2 text-center">
-                ¡Felicidades, aprendiste sobre...!
+                Congratulations, you learned about...!
               </h2>
               <h3 className="font-serif text-xl font-bold text-[#947355] mb-4 text-center">{completionData.title}</h3>
 
@@ -728,7 +730,7 @@ export default function BeeAgroGame() {
               <div className="bg-white/70 border-2 border-[#947355] rounded-xl p-4 mb-6">
                 <h4 className="font-bold text-[#557b35] mb-3 flex items-center gap-2">
                   <span className="text-xl">📚</span>
-                  <span>Puntos Clave:</span>
+                  <span>Key Points:</span>
                 </h4>
                 <ul className="space-y-2">
                   {completionData.learnings.map((learning, idx) => (
@@ -743,7 +745,7 @@ export default function BeeAgroGame() {
               <div className="bg-blue-50 border-2 border-blue-300 rounded-xl p-4 mb-6">
                 <h4 className="font-bold text-blue-800 mb-3 flex items-center gap-2">
                   <span className="text-xl">🔗</span>
-                  <span>Aprende Más:</span>
+                  <span>Learn More:</span>
                 </h4>
                 <div className="space-y-2">
                   {completionData.links.map((link, idx) => (
@@ -764,7 +766,7 @@ export default function BeeAgroGame() {
                 onClick={() => setShowCompletionModal(false)}
                 className="w-full px-6 py-3 bg-[#557b35] hover:bg-[#3d5727] text-white rounded-xl font-semibold transition-colors text-lg shadow-lg"
               >
-                ¡Continuar Aprendiendo!
+                Keep Learning!
               </button>
             </div>
           </div>
@@ -794,13 +796,13 @@ export default function BeeAgroGame() {
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 text-sm hover:underline block mb-4"
             >
-              → Leer más en Wikipedia
+              → Read more on Wikipedia
             </a>
             <button
               onClick={() => setShowVariableInfo(null)}
               className="w-full px-4 py-2 bg-[#557b35] hover:bg-[#3d5727] text-white rounded-lg font-semibold transition-colors"
             >
-              Cerrar
+              Close
             </button>
           </div>
         </div>
@@ -811,18 +813,18 @@ export default function BeeAgroGame() {
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
           <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 max-w-md w-full shadow-2xl border-4 border-red-600 text-center">
             <div className="relative w-32 h-32 mx-auto mb-4">
-              <Image src="/images/dead-bee.png" alt="Abeja triste" fill className="object-contain" />
+              <Image src="/images/dead-bee.png" alt="Sad bee" fill className="object-contain" />
             </div>
-            <h2 className="font-serif text-3xl font-bold text-red-600 mb-4">Fin del Juego</h2>
+            <h2 className="font-serif text-3xl font-bold text-red-600 mb-4">Game Over</h2>
             <p className="text-gray-700 mb-6 leading-relaxed">
-              API está muy triste. La salud de tu granja llegó a 0%. Recuerda que cada decisión afecta el ecosistema.
-              ¡Intenta de nuevo y usa los datos de NASA para tomar mejores decisiones!
+              API is very sad. Your farm's health reached 0%. Remember that every decision affects the ecosystem. Try
+              again and use NASA data to make better decisions!
             </p>
             <button
               onClick={handleRestartGame}
               className="w-full px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl font-semibold transition-colors text-lg shadow-lg"
             >
-              Reiniciar Juego
+              Restart Game
             </button>
           </div>
         </div>

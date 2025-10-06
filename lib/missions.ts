@@ -37,21 +37,21 @@ export interface Mission {
 export const MISSIONS: Record<MissionId, Mission> = {
   "mission-1": {
     id: "mission-1",
-    title: "La Plantación de Limones",
-    description: "Usa datos satelitales de NASA para tomar la mejor decisión sobre cuándo y cómo plantar limoneros",
+    title: "Lemon Planting",
+    description: "Use NASA satellite data to make the best decision about when and how to plant lemon trees",
     objectives: [
-      "Analizar las condiciones ambientales actuales",
-      "Evaluar la humedad del suelo y precipitaciones",
-      "Elegir el método de plantación más adecuado",
+      "Analyze current environmental conditions",
+      "Evaluate soil moisture and precipitation",
+      "Choose the most suitable planting method",
     ],
     introDialogue: [
       {
-        text: "¡Hola, agricultor! Soy API, tu abeja asistente conectada a los satélites de NASA. Estamos en primavera temprana aquí en Tucumán, Argentina, y es momento de plantar limoneros. Pero antes de meter las manos en la tierra, déjame mostrarte lo que los satélites nos dicen...",
+        text: "Hello, farmer! I'm API, your bee assistant connected to NASA satellites. We're in early spring here in Tucumán, Argentina, and it's time to plant lemon trees. But before getting our hands dirty, let me show you what the satellites are telling us...",
         emotion: "happy",
         speaker: "bea",
       },
       {
-        text: "Según los datos de NASA: la humedad del suelo está en 35%, tuvimos 50mm de lluvia el mes pasado, y las temperaturas oscilan entre 12°C y 22°C. Los limoneros necesitan suelo bien drenado pero con humedad constante. ¿Qué estrategia seguimos?",
+        text: "According to NASA data: soil moisture is at 35%, we had 50mm of rain last month, and temperatures range between 12°C and 22°C. Lemon trees need well-drained soil but with constant moisture. What strategy should we follow?",
         emotion: "neutral",
         speaker: "bea",
       },
@@ -59,8 +59,8 @@ export const MISSIONS: Record<MissionId, Mission> = {
     choices: [
       {
         id: "choice-plant-immediately",
-        label: "Plantar Inmediatamente",
-        description: "Plantar sin preparación adicional del suelo. Rápido pero arriesgado con 35% de humedad.",
+        label: "Plant Immediately",
+        description: "Plant without additional soil preparation. Fast but risky with 35% moisture.",
         cost: 3000,
         effects: {
           money: -3000,
@@ -70,16 +70,15 @@ export const MISSIONS: Record<MissionId, Mission> = {
           plotNdvi: { plotId: "plot-1", change: -0.05 },
         },
         feedback: {
-          text: "¡Oh no! Sin preparación adecuada, los limoneros están sufriendo. El suelo seco (35% humedad) no es suficiente para que las raíces se establezcan bien. Muchos plantines se marchitaron. Los datos satelitales nos advertían sobre esto...",
+          text: "Oh no! Without proper preparation, the lemon trees are suffering. The dry soil (35% moisture) isn't enough for the roots to establish well. Many seedlings withered. The satellite data was warning us about this...",
           emotion: "sad",
           speaker: "bea",
         },
       },
       {
         id: "choice-wait-rain",
-        label: "Esperar un Mes por Lluvia",
-        description:
-          "Esperar a que llueva naturalmente antes de plantar. Conservador pero puede perder la ventana óptima.",
+        label: "Wait a Month for Rain",
+        description: "Wait for natural rain before planting. Conservative but may miss the optimal window.",
         cost: 0,
         effects: {
           money: -1000,
@@ -88,15 +87,15 @@ export const MISSIONS: Record<MissionId, Mission> = {
           beaHealth: -5,
         },
         feedback: {
-          text: "Hmm, esperamos un mes pero la lluvia fue irregular. Perdimos parte de la ventana óptima de plantación primaveral. Los limoneros crecerán, pero no aprovechamos al máximo la estación. A veces la paciencia excesiva también tiene su costo.",
+          text: "Hmm, we waited a month but the rain was irregular. We lost part of the optimal spring planting window. The lemon trees will grow, but we didn't make the most of the season. Sometimes excessive patience also has its cost.",
           emotion: "worried",
           speaker: "bea",
         },
       },
       {
         id: "choice-intensive-irrigation",
-        label: "Riego Intensivo 2 Días",
-        description: "Inundar el terreno durante 2 días antes de plantar. Efectivo pero desperdicia agua y energía.",
+        label: "Intensive Irrigation 2 Days",
+        description: "Flood the land for 2 days before planting. Effective but wastes water and energy.",
         cost: 5000,
         effects: {
           money: -5000,
@@ -107,16 +106,16 @@ export const MISSIONS: Record<MissionId, Mission> = {
           plotHumidity: { plotId: "plot-1", change: 20 },
         },
         feedback: {
-          text: "Los limoneros están creciendo bien, pero... ¡usamos mucha agua! El riego intensivo funcionó, pero no fue eficiente. Además, el exceso de agua lavó algunos nutrientes del suelo. Hay una forma más inteligente de hacer esto.",
+          text: "The lemon trees are growing well, but... we used a lot of water! Intensive irrigation worked, but it wasn't efficient. Also, excess water washed away some soil nutrients. There's a smarter way to do this.",
           emotion: "neutral",
           speaker: "bea",
         },
       },
       {
         id: "choice-drip-irrigation",
-        label: "Sistema de Riego por Goteo",
+        label: "Drip Irrigation System",
         description:
-          "Instalar riego por goteo y plantar en los próximos días. Inversión inicial mayor pero óptimo a largo plazo.",
+          "Install drip irrigation and plant in the next few days. Higher initial investment but optimal long-term.",
         cost: 8000,
         effects: {
           money: -8000,
@@ -127,7 +126,7 @@ export const MISSIONS: Record<MissionId, Mission> = {
           plotHumidity: { plotId: "plot-1", change: 15 },
         },
         feedback: {
-          text: "¡Excelente decisión! El riego por goteo mantiene la humedad constante y óptima para los limoneros. Los datos satelitales muestran que el NDVI está mejorando consistentemente. Esta es la agricultura de precisión: usar tecnología y datos para tomar decisiones inteligentes. ¡Los limoneros te lo agradecerán con una cosecha abundante!",
+          text: "Excellent decision! Drip irrigation maintains constant and optimal moisture for lemon trees. Satellite data shows that NDVI is consistently improving. This is precision agriculture: using technology and data to make smart decisions. The lemon trees will thank you with an abundant harvest!",
           emotion: "happy",
           speaker: "bea",
         },
@@ -135,7 +134,7 @@ export const MISSIONS: Record<MissionId, Mission> = {
     ],
     completionDialogue: [
       {
-        text: "Recuerda: los satélites de NASA nos dan información valiosa sobre temperatura, humedad y salud de las plantas. Usar estos datos convierte la agricultura en ciencia, no en adivinanza. ¡Sigamos aprendiendo juntos!",
+        text: "Remember: NASA satellites give us valuable information about temperature, moisture, and plant health. Using this data turns agriculture into science, not guesswork. Let's keep learning together!",
         emotion: "happy",
         speaker: "bea",
       },
@@ -144,12 +143,12 @@ export const MISSIONS: Record<MissionId, Mission> = {
   },
   "mission-2": {
     id: "mission-2",
-    title: "La Primera Siembra",
-    description: "Toma tu primera decisión de cultivo y labranza",
-    objectives: ["Elegir un tipo de cultivo", "Seleccionar método de labranza", "Observar los resultados"],
+    title: "The First Planting",
+    description: "Make your first crop and tillage decision",
+    objectives: ["Choose a crop type", "Select tillage method", "Observe the results"],
     introDialogue: [
       {
-        text: "Ahora viene tu primera gran decisión. Tenemos dos opciones para este lote: soja, que es rentable pero agota el suelo, o una rotación con legumbres que lo enriquece. Y sobre la labranza... ¿aramos profundo y rápido, o usamos siembra directa que protege los microorganismos del suelo? Recuerda: cada elección tiene un eco. Yo sentiré ese eco en mis alas. ¿Qué camino elegimos juntos?",
+        text: "Now comes your first big decision. We have two options for this plot: soybeans, which are profitable but deplete the soil, or a rotation with legumes that enriches it. And about tillage... do we plow deep and fast, or use no-till that protects soil microorganisms? Remember: every choice has an echo. I'll feel that echo in my wings. What path do we choose together?",
         emotion: "neutral",
         speaker: "bea",
       },
@@ -157,8 +156,8 @@ export const MISSIONS: Record<MissionId, Mission> = {
     choices: [
       {
         id: "choice-intensive",
-        label: "Soja + Labranza Convencional",
-        description: "Máxima rentabilidad inmediata, pero agota el suelo y afecta la biodiversidad",
+        label: "Soy + Conventional Tillage",
+        description: "Maximum immediate profitability, but depletes soil and affects biodiversity",
         cost: 5000,
         effects: {
           money: 15000,
@@ -170,8 +169,8 @@ export const MISSIONS: Record<MissionId, Mission> = {
       },
       {
         id: "choice-sustainable",
-        label: "Rotación de Cultivos + Siembra Directa",
-        description: "Rentabilidad moderada, enriquece el suelo y mejora el ecosistema",
+        label: "Crop Rotation + No-Till",
+        description: "Moderate profitability, enriches soil and improves ecosystem",
         cost: 7000,
         effects: {
           money: 10000,
@@ -184,7 +183,7 @@ export const MISSIONS: Record<MissionId, Mission> = {
     ],
     completionDialogue: [
       {
-        text: "Interesante elección... Veremos cómo responde la tierra en las próximas semanas. Recuerda, la agricultura sostenible es un camino de paciencia y observación. Ahora, tengo una propuesta especial para ti.",
+        text: "Interesting choice... We'll see how the land responds in the coming weeks. Remember, sustainable agriculture is a path of patience and observation. Now, I have a special proposal for you.",
         emotion: "neutral",
         speaker: "bea",
       },
@@ -193,12 +192,12 @@ export const MISSIONS: Record<MissionId, Mission> = {
   },
   "mission-3": {
     id: "mission-3",
-    title: "El Jardín de Bea",
-    description: "Crea un refugio de biodiversidad plantando flores silvestres",
-    objectives: ["Plantar flores silvestres nativas", "Crear una franja de biodiversidad", "Desbloquear polinización"],
+    title: "Bea's Garden",
+    description: "Create a biodiversity refuge by planting wildflowers",
+    objectives: ["Plant native wildflowers", "Create a biodiversity strip", "Unlock pollination"],
     introDialogue: [
       {
-        text: "¡Tengo una idea maravillosa! ¿Ves ese borde del campo? Podríamos plantar flores silvestres nativas: caléndulas, lavanda, girasoles pequeños. No solo me darán néctar a mí y a mis hermanas, sino que atraerán insectos beneficiosos que protegerán tus cultivos de las plagas. Es como crear un ejército de guardianes naturales. ¿Invertimos un poco en este refugio de vida? Te prometo que la tierra te lo devolverá multiplicado.",
+        text: "I have a wonderful idea! See that edge of the field? We could plant native wildflowers: marigolds, lavender, small sunflowers. Not only will they give nectar to me and my sisters, but they'll attract beneficial insects that will protect your crops from pests. It's like creating an army of natural guardians. Shall we invest a little in this refuge of life? I promise the land will return it multiplied.",
         emotion: "happy",
         speaker: "bea",
       },
@@ -206,8 +205,8 @@ export const MISSIONS: Record<MissionId, Mission> = {
     choices: [
       {
         id: "choice-wildflowers",
-        label: "Plantar Jardín de Flores Silvestres",
-        description: "Invierte en biodiversidad para mejorar la polinización y control natural de plagas",
+        label: "Plant Wildflower Garden",
+        description: "Invest in biodiversity to improve pollination and natural pest control",
         cost: 3000,
         effects: {
           money: -3000,
@@ -218,8 +217,8 @@ export const MISSIONS: Record<MissionId, Mission> = {
       },
       {
         id: "choice-skip",
-        label: "Posponer por Ahora",
-        description: "Mantener el presupuesto actual sin cambios",
+        label: "Postpone for Now",
+        description: "Keep current budget without changes",
         cost: 0,
         effects: {
           beaHealth: -5,
@@ -228,7 +227,7 @@ export const MISSIONS: Record<MissionId, Mission> = {
     ],
     completionDialogue: [
       {
-        text: "¡Gracias por confiar en la naturaleza! Este jardín será un oasis de vida. Pronto verás cómo las abejas, mariposas y otros insectos beneficiosos transforman tu granja. La biodiversidad es la mejor inversión que un agricultor puede hacer.",
+        text: "Thank you for trusting nature! This garden will be an oasis of life. Soon you'll see how bees, butterflies, and other beneficial insects transform your farm. Biodiversity is the best investment a farmer can make.",
         emotion: "happy",
         speaker: "bea",
       },
